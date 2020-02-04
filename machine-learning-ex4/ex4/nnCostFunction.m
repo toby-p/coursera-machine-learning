@@ -21,7 +21,8 @@ Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
 
 Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), ...
                  num_labels, (hidden_layer_size + 1));
-
+##size(Theta1)
+##size(Theta2)
 % Setup some useful variables
 m = size(X, 1);
          
@@ -62,19 +63,18 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+##Forward Propagation:
+A1 = [ones(m, 1), X];  % Add bias unit to X
+Z2 = A1 * Theta1';
+A2 = [ones(size(Z2, 1), 1), sigmoid(Z2)];  % Add bias unit to Z2
+Z3 = A2 * Theta2';
+A3 = sigmoid(Z3);
 
+##Convert the y-vector of values to matrix:
+Y = eye(num_labels)(y,:);
 
-
-
-
-
-
-
-
-
-
-
-
+##Calculate the cost function:
+J = (1/m) * sum(sum((-Y.*log(A3)) - ((1-Y).*log(1-A3))));
 
 
 
