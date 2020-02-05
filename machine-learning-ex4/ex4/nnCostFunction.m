@@ -21,8 +21,7 @@ Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
 
 Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), ...
                  num_labels, (hidden_layer_size + 1));
-##size(Theta1)
-##size(Theta2)
+                 
 % Setup some useful variables
 m = size(X, 1);
          
@@ -76,12 +75,21 @@ Y = eye(num_labels)(y,:);
 ##Calculate the cost function:
 J = (1/m) * sum(sum((-Y.*log(A3)) - ((1-Y).*log(1-A3))));
 
+## Add the regularization penalty:
+t1 = Theta1(:, 2:end); % drop bias term.
+t2 = Theta2(:, 2:end); % drop bias term.
+regularization = (lambda / (2*m)) * (sum(sum(t1.**2)) + sum(sum(t2.**2)));
+J = J + regularization;
 
-
-
-
-% -------------------------------------------------------------
-
+## Back-propagation:
+s3 = A3 .- Y;
+s2 = s3 * t2 .* sigmoidGradient(Z2);
+delta2 = s3'*A2;
+delta1 = s2'*A1;
+reg_grad1 = [zeros(size(Theta1, 1), 1), (lambda / m) * Theta1(:, 2:end)];
+reg_grad2 = [zeros(size(Theta2, 1), 1), (lambda / m) * Theta2(:, 2:end)];
+Theta1_grad = (1/m) .* delta1 + reg_grad1;
+Theta2_grad = (1/m) .* delta2 + reg_grad2;
 % =========================================================================
 
 % Unroll gradients
