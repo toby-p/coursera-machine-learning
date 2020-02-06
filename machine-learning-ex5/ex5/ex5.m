@@ -35,12 +35,12 @@ load ('ex5data1.mat');
 m = size(X, 1);
 
 % Plot training data
-plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
-xlabel('Change in water level (x)');
-ylabel('Water flowing out of the dam (y)');
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+##plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
+##xlabel('Change in water level (x)');
+##ylabel('Water flowing out of the dam (y)');
+##
+##fprintf('Program paused. Press enter to continue.\n');
+##pause;
 
 %% =========== Part 2: Regularized Linear Regression Cost =============
 %  You should now implement the cost function for regularized linear 
@@ -54,7 +54,7 @@ fprintf(['Cost at theta = [1 ; 1]: %f '...
          '\n(this value should be about 303.993192)\n'], J);
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
+##pause;
 
 %% =========== Part 3: Regularized Linear Regression Gradient =============
 %  You should now implement the gradient for regularized linear 
@@ -69,7 +69,7 @@ fprintf(['Gradient at theta = [1 ; 1]:  [%f; %f] '...
          grad(1), grad(2));
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
+##pause;
 
 
 %% =========== Part 4: Train Linear Regression =============
@@ -86,15 +86,15 @@ lambda = 0;
 [theta] = trainLinearReg([ones(m, 1) X], y, lambda);
 
 %  Plot fit over the data
-plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
-xlabel('Change in water level (x)');
-ylabel('Water flowing out of the dam (y)');
-hold on;
-plot(X, [ones(m, 1) X]*theta, '--', 'LineWidth', 2)
-hold off;
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+##plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
+##xlabel('Change in water level (x)');
+##ylabel('Water flowing out of the dam (y)');
+##hold on;
+##plot(X, [ones(m, 1) X]*theta, '--', 'LineWidth', 2)
+##hold off;
+##
+##fprintf('Program paused. Press enter to continue.\n');
+##pause;
 
 
 %% =========== Part 5: Learning Curve for Linear Regression =============
@@ -104,25 +104,25 @@ pause;
 %                 see a graph with "high bias" -- Figure 3 in ex5.pdf 
 %
 
-lambda = 0;
-[error_train, error_val] = ...
-    learningCurve([ones(m, 1) X], y, ...
-                  [ones(size(Xval, 1), 1) Xval], yval, ...
-                  lambda);
-
-plot(1:m, error_train, 1:m, error_val);
-title('Learning curve for linear regression')
-legend('Train', 'Cross Validation')
-xlabel('Number of training examples')
-ylabel('Error')
-axis([0 13 0 150])
-
-fprintf('# Training Examples\tTrain Error\tCross Validation Error\n');
-for i = 1:m
-    fprintf('  \t%d\t\t%f\t%f\n', i, error_train(i), error_val(i));
-end
-
-fprintf('Program paused. Press enter to continue.\n');
+##lambda = 0;
+##[error_train, error_val] = ...
+##    learningCurve([ones(m, 1) X], y, ...
+##                  [ones(size(Xval, 1), 1) Xval], yval, ...
+##                  lambda);
+##
+##plot(1:m, error_train, 1:m, error_val);
+##title('Learning curve for linear regression')
+##legend('Train', 'Cross Validation')
+##xlabel('Number of training examples')
+##ylabel('Error')
+##axis([0 13 0 150])
+##
+##fprintf('# Training Examples\tTrain Error\tCross Validation Error\n');
+##for i = 1:m
+##    fprintf('  \t%d\t\t%f\t%f\n', i, error_train(i), error_val(i));
+##end
+##
+##fprintf('Program paused. Press enter to continue.\n');
 pause;
 
 %% =========== Part 6: Feature Mapping for Polynomial Regression =============
@@ -164,7 +164,7 @@ pause;
 %  lambda to see how the fit and learning curve change.
 %
 
-lambda = 0;
+lambda = 1;
 [theta] = trainLinearReg(X_poly, y, lambda);
 
 % Plot training data and fit
