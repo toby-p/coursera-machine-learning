@@ -25,18 +25,18 @@ clear ; close all; clc
 %  We start this exercise by using a small dataset that is easily to
 %  visualize
 %
-fprintf('Visualizing example dataset for PCA.\n\n');
-
-%  The following command loads the dataset. You should now have the 
-%  variable X in your environment
+##fprintf('Visualizing example dataset for PCA.\n\n');
+##
+##%  The following command loads the dataset. You should now have the 
+##%  variable X in your environment
 load ('ex7data1.mat');
-
-%  Visualize the example dataset
-plot(X(:, 1), X(:, 2), 'bo');
-axis([0.5 6.5 2 8]); axis square;
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+##
+##%  Visualize the example dataset
+##plot(X(:, 1), X(:, 2), 'bo');
+##axis([0.5 6.5 2 8]); axis square;
+##
+##fprintf('Program paused. Press enter to continue.\n');
+##pause;
 
 
 %% =============== Part 2: Principal Component Analysis ===============
