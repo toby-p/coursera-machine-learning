@@ -31,16 +31,16 @@ load ('ex8_movies.mat');
 %  rating to movie i
 
 %  From the matrix, we can compute statistics like average rating.
-fprintf('Average rating for movie 1 (Toy Story): %f / 5\n\n', ...
-        mean(Y(1, R(1, :))));
-
-%  We can "visualize" the ratings matrix by plotting it with imagesc
-imagesc(Y);
-ylabel('Movies');
-xlabel('Users');
-
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
+##fprintf('Average rating for movie 1 (Toy Story): %f / 5\n\n', ...
+##        mean(Y(1, R(1, :))));
+##
+##%  We can "visualize" the ratings matrix by plotting it with imagesc
+##imagesc(Y);
+##ylabel('Movies');
+##xlabel('Users');
+##
+##fprintf('\nProgram paused. Press enter to continue.\n');
+##pause;
 
 %% ============ Part 2: Collaborative Filtering Cost Function ===========
 %  You will now implement the cost function for collaborative filtering.
@@ -135,15 +135,12 @@ my_ratings(98) = 2;
 
 % We have selected a few movies we liked / did not like and the ratings we
 % gave are as follows:
-my_ratings(7) = 3;
-my_ratings(12)= 5;
-my_ratings(54) = 4;
-my_ratings(64)= 5;
-my_ratings(66)= 3;
-my_ratings(69) = 5;
-my_ratings(183) = 4;
-my_ratings(226) = 5;
-my_ratings(355)= 5;
+my_ratings(2) = 5;
+my_ratings(11)= 5;
+my_ratings(23) = 4;
+my_ratings(27)= 3;
+my_ratings(50)= 4;
+my_ratings(72) = 4;
 
 fprintf('\n\nNew user ratings:\n');
 for i = 1:length(my_ratings)
